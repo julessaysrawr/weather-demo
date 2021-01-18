@@ -54,4 +54,8 @@ A nice to have is loading placeholder graphics to show where the parts of the ap
 
 ### Secrets
 
-For sake of easy demo for others to view working code, the api key remains hardcoded in url to the api. This should never be done in production.
+The API key is stored in an environment variable in the github pages env (in `.env` locally).  For production, this would probably use a secrets manager or preferably a back-end, since secrets are embedded in the build [Source: Create React App Documentation](https://create-react-app.dev/docs/adding-custom-environment-variables/)
+
+### Deployement
+
+This app is deployed to github pages for the sole reason of I did not want to repeat the setup and configuration of eslint & prettier in a code sandbox 😅
