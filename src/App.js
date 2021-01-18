@@ -33,6 +33,22 @@ function App() {
         <SideBar setLocation={setLocation} />
         <LocationDetails location={location} />
       </main>
+      <footer
+        css={css`
+          text-align: center;
+          margin-top: 50px;
+
+          a {
+            color: black;
+          }
+
+          a:visited {
+            color: black;
+          }
+        `}
+      >
+        <a href="https://github.com/julessaysrawr/weather-demo">Code viewable on Github</a>
+      </footer>
     </div>
   )
 }
