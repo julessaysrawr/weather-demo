@@ -1,0 +1,18 @@
+{
+  "parser": "babel-eslint",
+  "rules": { // 0 = off, 1 = warn, 2 = error
+    "strict": 0,
+    "react/prop-types": 0,
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "semi": ["error", "never"],
+    "prettier/prettier": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "no-console": 1, //1=warn,
+    "no-unused-vars": 1
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "plugins": ["prettier"],
+  "settings": {
+    "react": { "version": "detect" }
+  }
+}

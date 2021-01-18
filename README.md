@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Weather Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a demo of a simple weather app using the [open weather map API](https://openweathermap.org)
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+1 - Seed the app with top ten cities - this data is available on load
 
-### `npm start`
+2 - When a city is clicked, it will load the current weather data with an image of the description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3 - Medium laptop screen size
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4 - Fast 3g connection
 
-### `npm test`
+## Assumptions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Cities in the United States
 
-### `npm run build`
+- Cities were selected at random, but I did intentionally choose one with a zip code that has a leading 0 because that is an common edge case when dealing with zip codes that must be considered with your data structure.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Since the images were a fixed set, I thought it better to download the images instead of linking to them on the openweather site. This is how it would be done for production.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Opportunities for improvement
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### API
 
-### `npm run eject`
+I only spent a short time looking at this api. It is important to note that *not* all weather conditions descriptions have not been accounted for, only the main ones as seen [here](https://openweathermap.org/weather-conditions ).  This means that it is a possible edge case that if current weather description is returned from the api that is not handled in `location-details.js` a corresponding image may not be shown.  For production, it would be better to use the id range of the conditions as opposed to the string values implemented in this example.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Data and caching
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Depending on the data connection and speeds, it might make sense to pre-fetch the data for the top ten cities, even before the person clicks on one of the cities to get the weather details. Additionally, caching or storing the data once received from the server would save future network requests. There would also need to be thought put into the time to live (TTL) for the caching and when it would make sense to fetch new data. More detailed requirements would need to be provided to offer more specific recommendations or solutions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Accessibility
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+For production, this would need to be tested with a screen reader and keyboard-only navigation. Also, I would need to research the best way to communicate that the top ten cities are clickable and what to expect when a person clicks or selects one. There could be opportunities to improve the semantic html as well. I opted to use `aria-role="button"` because it's used for a user-triggered action when clicked or pressed [source: w3.org](https://www.w3.org/TR/wai-aria/#button)
 
-## Learn More
+Color contrast should be considered for the graphics, which are light colored, against a similar colored light background. While the graphics are decorative (not needed to understand the content on the page), it would be a good practice to have better color contrast.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### CSS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This example app uses css-in-js because I am most productive using it, but there are a lot of considerations for a production app. What approach for styles already exists in the app? Do team norms or preferences exist? Is the current approach working? Is there a theme or design system that needs to be considered? I would not presume that my preference would or should work for the team. This would be a team decision in my opinion. I can articulate my reasoning for the nuances of why I prefer this approach, but as with most technical decisions, it depends on context.
 
-### Code Splitting
+For production, there would be global styles like fonts, styling reset or normalizing, and other general defaults.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Tests & Error handling
 
-### Analyzing the Bundle Size
+Any time you are working with an API, you want to have good error handling that communicates clear messages to the person using the app. What if the API is down, or returns something unexpected? What if there is an auth error? For production, this would need testing at minimum around the api and more robust error handling.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### User experience
 
-### Making a Progressive Web App
+A responsive app is table stakes for an app. Unless you are physically providing devices, you cannot assume what size screen a person will have, and there for must support everything from small phones to large monitors. This example works on screen sizes down to 550px width, at which point the UI starts to degrade.  That means that this would not work well on mobile, but would on monitors, laptops, and tablets.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+A nice to have is loading placeholder graphics to show where the parts of the app will load (grey shapes that become the UI when data is filled in for example).
 
-### Advanced Configuration
+### Secrets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For sake of easy demo for others to view working code, the api key remains hardcoded in url to the api. This should never be done in production.

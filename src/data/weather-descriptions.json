@@ -1,0 +1,40 @@
+{ "WeatherDescriptions":
+  [
+    {
+    "name": "clear sky",
+    "image": "☀01d.png"
+    },
+    {
+      "name": "few clouds",
+      "image": "02d.png"
+    },
+    {
+      "name": "scattered clouds",
+      "image": "03d.png"
+    },
+    {
+      "name": "broken clouds",
+      "image": "04d.png"
+    },
+    {
+      "name": "shower rain",
+      "image": "09d.png"
+    },
+    {
+      "name": "rain",
+      "image": "001d.png"
+    },
+    {
+      "name": "thunderstorm",
+      "image": "11d.png"
+    },
+    {
+      "name": "snow",
+      "image": "13d.png"
+    },
+    {
+      "name": "mist",
+      "image": "50d.png"
+    }
+  ]
+}

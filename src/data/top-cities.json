@@ -1,0 +1,54 @@
+{ "TopCities":
+  [
+    {
+    "name": "Phoenix",
+    "state": "AZ",
+    "zipCode": "85001"
+    },
+    {
+      "name": "Los Angeles",
+      "state": "CA",
+      "zipCode": "90001"
+    },
+    {
+      "name": "Denver",
+      "state": "CO",
+      "zipCode": "80201"
+    },
+    {
+      "name": "Miami",
+      "state": "FL",
+      "zipCode": "33124"
+    },
+    {
+      "name": "Atlanta",
+      "state": "GA",
+      "zipCode": "30301"
+    },
+    {
+      "name": "Washington",
+      "state": "DC",
+      "zipCode": "20001"
+    },
+    {
+      "name": "Boston",
+      "state": "MA",
+      "zipCode": "02111"
+    },
+    {
+      "name": "Austin",
+      "state": "TX",
+      "zipCode": "78701"
+    },
+    {
+      "name": "Pittsburgh",
+      "state": "PA",
+      "zipCode": "15201"
+    },
+    {
+      "name": "Cleveland",
+      "state": "OH",
+      "zipCode": "44101"
+    }
+  ]
+}
