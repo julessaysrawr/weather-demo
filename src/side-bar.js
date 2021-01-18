@@ -42,7 +42,6 @@ export default function SideBar({ setLocation }) {
                 font-size: 18px;
                 font-family: sans-serif;
               `}
-              // onClick={() => clickHandler(city)}
               aria-label={city.name}
               role="button"
               onClick={() => setLocation(city)}
