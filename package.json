@@ -1,4 +1,5 @@
 {
+  "homepage": "https://julessaysrawr.github.io/weather-demo",
   "name": "weather-demo",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
+    "gh-pages": "^3.1.0",
     "prettier": "2.2.1",
     "prettier-eslint": "12.0.0",
     "prettier-eslint-cli": "5.0.0"
